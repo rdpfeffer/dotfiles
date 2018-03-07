@@ -27,7 +27,7 @@ function icloud
   command brctl monitor ~/iCloud/
 end
 
-function icloud2
+function icloud-logs
   command brctl log --wait
 end
 
@@ -47,7 +47,7 @@ function df --description 'Displays disk free space'
   command df -H $argv
 end
 
-function gitx
+function vlc
   open -a vlc $argv
 end
 
