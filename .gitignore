@@ -12,3 +12,9 @@
 /.gnupg/tofu.db
 
 /.gnupg/trustdb.gpg
+
+/.ipython/
+
+/.config/
+
+/.viminfo
