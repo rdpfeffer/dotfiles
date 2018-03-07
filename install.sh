@@ -61,9 +61,6 @@ brew install pipenv
 brew install git-open
 brew install gist
 
-# Install Postgres (for psychopg2).
-brew install postgres
-
 # Install other languages.
 brew install lua
 brew install node
