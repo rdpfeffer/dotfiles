@@ -5,6 +5,9 @@ I keep these stored in iCloud, and synced across all machines (including Linux m
     $ ln -s ~/Library/Mobile Documents/com~apple~CloudDocs ~/iCloud
     $ cd ~/iCloud/dotfiles
     $ ./install.sh | ./update.sh
+    
+    
+List of [installed packages](https://github.com/kennethreitz/dotfiles/blob/master/install.sh).
 
 ### Useful MacOS Utilities
 
