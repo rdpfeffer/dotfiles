@@ -2,6 +2,10 @@
 
 I keep these stored in iCloud, and synced across all machines.
 
+    $ ln -s ~/Library/Mobile Documents/com~apple~CloudDocs ~/iCloud
+    $ cd ~/iCloud/dotfiles
+    $ ./install.sh | ./update.sh
+
 ### Useful MacOS Utilities
 
     $ battery
