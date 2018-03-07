@@ -5,7 +5,28 @@ I keep these stored in iCloud, and synced across all machines (including Linux m
     $ ln -s ~/Library/Mobile Documents/com~apple~CloudDocs ~/iCloud
     $ cd ~/iCloud/dotfiles
     $ ./install.sh | ./update.sh
-    
+
+### Fish Shell
+
+I use the (Fish Shell)[https://fishshell.com]. It's excellent software.
+
+I use [fisherman](https://github.com/fisherman/fisherman) to manage my shell plugins:
+
+    $ fisher ls
+    anicode		    	grc
+    autojump	    	humanize_duration
+    bang-bang	    	osx
+    bass		    	pipenv-fish
+    bd		        	pisces
+    choices		    	pyenv
+    docker-completion	python
+    done		    	segment
+    extract		    	spin
+    get		        	ssh
+    getopts		    	ssh-term-helper
+    git_util	    	tab
+
+### Homebrew Packages
     
 List of [installed packages](https://github.com/kennethreitz/dotfiles/blob/master/install.sh).
 
