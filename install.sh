@@ -16,6 +16,11 @@ brew install heroku
 brew install git
 brew install ack
 
+# Install Heroku plugins.
+heroku plugins:install heroku-sudo
+heroku plugins:install heroku-repo
+heroku plugins:install heroku-buildkits
+
 # Install download utilities.
 brew install youtube-dl
 brew install wget
