@@ -1,0 +1,80 @@
+function up
+  ping 8.8.8.8
+end
+
+function battery
+  pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f1 -d';'
+  pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f3 -d';'
+end
+
+function cpu
+  sysctl -n machdep.cpu.brand_string
+end
+
+function ip
+  dig +short myip.opendns.com @resolver1.opendns.com
+end
+
+function ss
+  open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
+end
+
+function lock
+  /System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
+end
+
+function icloud
+  command brctl monitor ~/iCloud/
+end
+
+function icloud2
+  command brctl log --wait
+end
+
+function uptime
+  command grc uptime
+end
+
+function fortune
+  command fortune $argv | lolcat
+end
+
+function mate
+  command subl -multiinstance $argv
+end
+
+function df --description 'Displays disk free space'
+  command df -H $argv
+end
+
+function gitx
+  open -a vlc $argv
+end
+
+function gitx
+  command gittower (git rev-parse --show-toplevel)
+end
+
+function fresh
+  command git commit -m "empty commit" --allow-empty
+end
+
+function hfresh
+  command fresh and command git push heroku master
+end
+
+function cake
+  command em sparkles cake sparkles
+end
+
+function super-cake
+  command em dizzy sparkles cake sparkles dizzy
+end
+
+function svn
+  command find . -name "*.svn" -exec rm -rf {} \;
+end
+
+function pyc
+  command find . -name "*.pyc" -exec rm -rf {} \;
+end
