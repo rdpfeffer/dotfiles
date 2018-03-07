@@ -8,9 +8,7 @@ I keep these stored in iCloud, and synced across all machines (including Linux m
 
 ### Fish Shell
 
-I use the [Fish Shell](https://fishshell.com). It's excellent software.
-
-I use [fisherman](https://github.com/fisherman/fisherman) to manage my shell plugins:
+I use the [Fish Shell](https://fishshell.com). It's excellent software. I use [fisherman](https://github.com/fisherman/fisherman) to manage my shell plugins:
 
     $ fisher ls
     anicode		    	grc
