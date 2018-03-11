@@ -2,7 +2,7 @@
 
 I keep these stored in iCloud, and synced across all machines (including Linux machines).
 
-    $ ln -s ~/Library/Mobile Documents/com~apple~CloudDocs ~/iCloud
+    $ ln -s '~/Library/Mobile Documents/com~apple~CloudDocs' ~/iCloud
     $ cd ~/iCloud/dotfiles
     $ ./install.sh | ./update.sh
 
