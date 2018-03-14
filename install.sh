@@ -50,8 +50,8 @@ brew install pypy
 brew install pypy3
 brew install ipython
 
-# Python 2 utilities.
-pip2 install legit
+# Python utilities.
+pip3 install legit
 pip2 install em-keyboard
 
 # Pipenv!
