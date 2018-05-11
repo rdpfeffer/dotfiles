@@ -26,13 +26,13 @@ if status --is-login
     export EDITOR=subl
     set SHELL /usr/local/bin/fish
 
-    # set -gx PATH /Users/kennethreitz/.local/bin $PATH
+    # set -gx PATH /Users/rpfeffer/.local/bin $PATH
     set -gx PATH /usr/local/opt/python@2/bin $PATH
     set -gx ANDROID_NDK_HOME /usr/local/share/android-ndk
     set -gx ANDROID_SDK_ROOT /usr/local/share/android-sdk
 
     # Go support.
-    # set -gx PATH /Users/kennethreitz/go/bin $PATH
+    # set -gx PATH /Users/rpfeffer/go/bin $PATH
 
     # set -x PYENV_ROOT $HOME/.pyenv
     # set -x PATH $PYENV_ROOT/bin $PATH

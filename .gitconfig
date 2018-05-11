@@ -1,16 +1,33 @@
 [user]
-	email = me@kennethreitz.org
-	name = Kenneth Reitz
-	signingkey = 61E33192CB11A36C
+    name = Ryan Pfeffer
+    email = ryan.pfeffer@plangrid.com
+    signingkey = D4AF5D51F6F35579
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore_global
+[merge]
+    tool = extMerge
+[mergetool "extMerge"]
+    cmd = extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+    trustExitCode = false
+[diff]
+    external = extDiff
 [alias]
-	branches = !legit branches
-	publish = !legit publish
-	unpublish = !legit unpublish
-	sync = !legit sync
-	switch = !legit switch
-	resync = !legit resync
-	undo = !legit undo
-	log = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    branches = !legit branches
+    publish = !legit publish
+    unpublish = !legit unpublish
+    sync = !legit sync
+    switch = !legit switch
+    resync = !legit resync
+    undo = !legit undo
+    log = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    c = commit
+    co = checkout
+    dim = diff
+    dimc = diff --cached
+    st = status
+[grep]
+    linenumber = true
 [commit]
-	gpgsign = false
+    gpgsign = false
