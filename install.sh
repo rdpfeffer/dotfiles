@@ -16,13 +16,10 @@ brew install heroku
 brew install git
 brew install ack
 
-# Install Heroku plugins.
-heroku plugins:install heroku-repo
-
 # Install orchestration tools.
-brew install terraform
-brew install caskroom/cask/virtualbox
-brew install caskroom/cask/minikube
+# brew install terraform
+# brew install caskroom/cask/virtualbox
+# brew install caskroom/cask/minikube
 
 # Install download utilities.
 brew install youtube-dl
@@ -61,7 +58,6 @@ pip2 install em-keyboard
 brew install pipenv
 
 # Install git utilities.
-brew install git-open
 brew install gist
 
 # Install other languages.
