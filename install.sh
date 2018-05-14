@@ -15,6 +15,7 @@ brew autoupdate --start --upgrade --cleanup --enable-notifications
 brew install heroku
 brew install git
 brew install ack
+brew install stow
 
 # Install orchestration tools.
 # brew install terraform
