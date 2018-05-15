@@ -1,6 +1,6 @@
 # Use personal aliases
 
-source ~/.aliases
+source ~/.config/fish/aliases.fish
 
 set -g theme_nerd_fonts yes
 set -g theme_show_exit_status yes

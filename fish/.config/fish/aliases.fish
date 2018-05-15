@@ -46,3 +46,7 @@ end
 function pyc
   command find . -name "*.pyc" -exec rm -rf {} \;
 end
+
+function large_files --description 'Show the ten largest files'
+  command du -d 1 -h $argv | sort -h | tail
+end
