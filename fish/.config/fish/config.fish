@@ -36,6 +36,14 @@ if status --is-login
 
     # set -x PYENV_ROOT $HOME/.pyenv
     # set -x PATH $PYENV_ROOT/bin $PATH
+
+
+    # Load other available profiles
+    if test -d ~/.config/fish/profiles
+        for profile in ~/.config/fish/profiles/*.fish
+            source $profile
+        end
+    end 
 end
 
 export GPG_TTY=(tty)
