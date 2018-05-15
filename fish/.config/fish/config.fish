@@ -13,7 +13,7 @@ if status --is-login
     set -gx LSCOLORS gxfxcxdxbxegedabagacad
 
     set -gx PATH /usr/local/bin $PATH
-    set -gx GOPATH ~/go/
+    set -gx GOPATH ~/go
 
     # Autojump support
     [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
