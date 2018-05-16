@@ -2,15 +2,17 @@
 
 source ~/.config/fish/aliases.fish
 
-set -g theme_nerd_fonts yes
-set -g theme_show_exit_status yes
-set -g theme_display_git_untracked no
-set -g theme_color_scheme solarized-dark
 
 if status --is-login
 
-    # better ls colors
-    set -gx LSCOLORS gxfxcxdxbxegedabagacad
+    # Remove make from the list of executables that we will wrap with the grc 
+    # plugin as it will break terminal sessions with docker that happen to be 
+    # invoked with make. This must be a universal variable so that it can be
+    # picked up by the init script which is loaded before this one. (NOTE: 
+    # this also means that the very first terminal session will not be able to
+    # use make in this way, but this is an edge case I'm willing to live with
+    # for now.)
+    set -Ux grc_plugin_execs cat df diff dig gcc g++ ifconfig ls mount netstat ps ping tail traceroute wdiff
 
     set -gx PATH /usr/local/bin $PATH
     set -gx GOPATH ~/go
@@ -19,11 +21,10 @@ if status --is-login
     [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
 
     # Don't write bytecode, Python!
-    export PYTHONDONTWRITEBYTECODE=1
-    export PIPENV_DEFAULT_PYTHON_VERSION=3.6
-    export PIPENV_SHELL_FANCY=1
-    export PIPENV_MAX_SUBPROCESS=64
-    export EDITOR=subl
+    set -gx PYTHONDONTWRITEBYTECODE 1
+    set -gx PIPENV_DEFAULT_PYTHON_VERSION 3.6
+    set -gx PIPENV_SHELL_FANCY 1
+    set -gx PIPENV_MAX_SUBPROCESS 64
     set SHELL /usr/local/bin/fish
 
     # set -gx PATH /Users/rpfeffer/.local/bin $PATH
@@ -31,12 +32,10 @@ if status --is-login
     set -gx ANDROID_NDK_HOME /usr/local/share/android-ndk
     set -gx ANDROID_SDK_ROOT /usr/local/share/android-sdk
 
-    # Go support.
-    # set -gx PATH /Users/rpfeffer/go/bin $PATH
-
     # set -x PYENV_ROOT $HOME/.pyenv
     # set -x PATH $PYENV_ROOT/bin $PATH
 
+    eval (docker-machine env)
 
     # Load other available profiles
     if test -d ~/.config/fish/profiles
@@ -46,4 +45,4 @@ if status --is-login
     end 
 end
 
-export GPG_TTY=(tty)
+set GPG_TTY (tty)
