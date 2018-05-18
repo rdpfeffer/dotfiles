@@ -38,6 +38,9 @@ if status --is-login
     # VIM!
     set -gx EDITOR vim
 
+    # remove the fish greeting
+    set fish_greeting
+
     eval (docker-machine env)
 
     # Load other available profiles
