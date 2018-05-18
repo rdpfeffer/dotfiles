@@ -38,6 +38,7 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'python-mode/python-mode', { 'branch': 'develop' }
 Plugin 'chrisbra/csv.vim'
+Plugin 'itspriddle/vim-marked'
 
 " List ends here. Plugins become visible to Vim after this call.
 call vundle#end()
