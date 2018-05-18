@@ -20,8 +20,9 @@
     switch = !legit switch
     resync = !legit resync
     undo = !legit undo
-    log = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    l = log --graph --format=format:'%C(bold cyan)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(bold yellow)%d%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --abbrev-commit --decorate --date=relative --all
+    # Show the local branch history (useful for local branch cleanup)
+    bh = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:cyan)%(objectname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset)) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:reset)%(color:dim white)- %(authorname) %(color:reset)'
     c = commit
     co = checkout
     dim = diff
