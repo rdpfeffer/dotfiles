@@ -34,6 +34,9 @@ if status --is-login
 
     # set -x PYENV_ROOT $HOME/.pyenv
     # set -x PATH $PYENV_ROOT/bin $PATH
+    
+    # VIM!
+    set -gx EDITOR vim
 
     eval (docker-machine env)
 
