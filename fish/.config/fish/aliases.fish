@@ -43,10 +43,22 @@ function super-cake
   command em dizzy sparkles cake sparkles dizzy
 end
 
-function pyc
+function pyc --description 'remove all pyc files'
   command find . -name "*.pyc" -exec rm -rf {} \;
 end
 
+function swp --description 'remove all swp files'
+  command find . -name "*.swp" -exec rm -rf {} \;
+end 
+
 function large_files --description 'Show the ten largest files'
   command du -d 1 -h $argv | sort -h | tail
+end
+
+function dim --description 'Alias for git diff'
+  command git diff
+end
+
+function dimc --description 'Alias for diff --cached'
+  command git diff --cached
 end
