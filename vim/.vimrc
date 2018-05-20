@@ -28,7 +28,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'Konfekt/FastFold'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
-"-- Plugin 'vim-syntastic/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jnurmine/Zenburn'
@@ -39,6 +39,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'python-mode/python-mode', { 'branch': 'develop' }
 Plugin 'chrisbra/csv.vim'
 Plugin 'itspriddle/vim-marked'
+Plugin 'airblade/vim-gitgutter'
 
 " List ends here. Plugins become visible to Vim after this call.
 call vundle#end()
@@ -157,9 +158,6 @@ set notimeout ttimeout ttimeoutlen=200
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
  
-" Set the color and show the cursor line in bold
-"set cursorline
-"hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " Tell vim to lazily redraw the screen
 :set lazyredraw
@@ -241,7 +239,21 @@ let g:pymode_rope_rename_bind = '<C-c>rr'
 "----------------------------------------------------------
 " Color Shceme
 colorscheme zenburn
+" Set the color and show the cursor line in bold
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
 
+"----------------------------------------------------------
+" Syntastic Settings
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 "-----------------------------------------------------------
 " Customize How we Browse Files
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
