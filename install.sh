@@ -85,3 +85,6 @@ brew install gpg
 
 # Pandoc
 brew install pandoc
+
+# Fisherman (Fish Plugin manager)
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
