@@ -17,11 +17,6 @@ brew install git
 brew install ack
 brew install stow
 
-# Install orchestration tools.
-# brew install terraform
-# brew install caskroom/cask/virtualbox
-# brew install caskroom/cask/minikube
-
 # Install download utilities.
 brew install youtube-dl
 brew install wget
@@ -41,7 +36,10 @@ brew install neofetch
 brew install mosh
 
 # Install bash utilities.
+brew tap kaos/shell
 brew install bats
+brew install bats-assert
+brew install bats-file
 brew install shellcheck
 
 # Install Python utlitlies.
