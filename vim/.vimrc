@@ -13,6 +13,9 @@
 set nocompatible
 filetype off
  
+" Vim relies on the bash shell
+set shell=/bin/bash
+
 "-----------------------------------------------------------
 " Plugin Management
 execute pathogen#infect()
