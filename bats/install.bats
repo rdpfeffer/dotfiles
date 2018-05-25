@@ -4,10 +4,9 @@ load '/usr/local/lib/bats-support/load.bash'
 load '/usr/local/lib/bats-file/load.bash'
 load '/usr/local/lib/bats-assert/load.bash'
 
-@test "fish is installed" {
-  run which fish
-  [ "$status" -eq 0 ]
-  [ "$output"="/usr/local/bin/fishs" ]
+@test "git is installed" {
+  result="$(which git)"
+  [ "$result"="/usr/bin/git" ]
 }
 
 @test "python 2 is installed as the default python" {
@@ -27,6 +26,3 @@ load '/usr/local/lib/bats-assert/load.bash'
   [ "$result"="/usr/local/bin/pipenv" ]
 }
 
-@test "Fisherman is installed" {
-  assert_file_exist "$HOME/.config/fish/functions/fisher.fish"
-}

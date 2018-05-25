@@ -84,5 +84,6 @@ brew install gpg
 # Pandoc
 brew install pandoc
 
-# Fisherman (Fish Plugin manager)
-curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+# Mac Vim and link vim to mvim
+bew install macvim
+ln -s /usr/local/bin/vim /usr/local/bim/mvim
