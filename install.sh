@@ -16,6 +16,7 @@ brew install heroku
 brew install git
 brew install ack
 brew install stow
+brew install awscli
 
 # Install download utilities.
 brew install youtube-dl
