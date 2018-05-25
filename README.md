@@ -1,28 +1,36 @@
 # Ryan Pfeffer's Dotfiles
 
-Dotfiles are stored on github and managed using [GNU stow](https://www.gnu.org/software/stow/). See [this article](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html) for more info. 
 
-    $ ./install.sh | ./update.sh
+## What
+Simple tools working together to create a delightful development environment.
 
-### Fish Shell
+ * VIM - for text editing, code refactoring, etc
+ * [Fish Shell](https://fishshell.com) - for a shell, plus fisherman for plugin management.
+ * [direnv](https://direnv.net) - To manage project specific env vars (and keep config clean).
+ * [GNU stow](https://www.gnu.org/software/stow/) stow to [manage config and rc files](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html) 
+ * [Spectacle](https://www.spectacleapp.com/) for window management (I'm not into tmux...yet).
 
-I use the [Fish Shell](https://fishshell.com). It's excellent software. I use [fisherman](https://github.com/fisherman/fisherman) to manage my shell plugins:
+## Bootstrap
+From a totally clean environment, run...
 
-    $ fisher ls
-    * metro	humanize_duration
-      anicode	last_job_id
-      bass	pipenv
-      bd	pisces
-      choices	pwd_info
-      done	pwd_is_home
-      get	pyenv
-      getopts	segment
-      git_util	spin
-      grc	ssh-term-helper
-      host_info
-### Homebrew Packages
-    
-List of [installed packages](https://github.com/rdpfeffer/dotfiles/blob/master/install.sh).
+```bash
+$ source <(curl -fsSL https://raw.githubusercontent.com/rdpfeffer/dotfiles/master/install.sh)
+$ ./install.sh | ./update.sh
+```
+
+## Setup
+A few things will need to be manually configured, (keys setup etc) before everything is good to go.
+
+ 1. Setup [ssh access to github](https://help.github.com/articles/connecting-to-github-with-ssh/)
+ 1. Setup [GPG keys for commit signing](https://help.github.com/articles/signing-commits-with-gpg/)
+ 1. Clone this repo, and run...
+
+```bash
+$ cd ~
+$ git clone git@github.com:rdpfeffer/dotfiles.git
+$ cd dotfiles
+$ ./setup.sh
+```
 
 ### Useful MacOS Utilities
 
