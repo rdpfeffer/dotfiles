@@ -30,6 +30,8 @@ npm ls -gp --depth=0 \
 gem uninstall --all
 
 # Remove all brewed packages
-brew list | xargs brew uninstall
+brew list | xargs brew uninstall --force
 rm /usr/local/bin/vim
+
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
