@@ -42,6 +42,7 @@ brew install git
 brew install ack
 brew install stow
 brew install awscli
+brew install cmake
 
 cat << END
 ======================================
