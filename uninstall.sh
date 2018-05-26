@@ -33,5 +33,5 @@ gem uninstall --all
 brew list | xargs brew uninstall --force
 rm /usr/local/bin/vim
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+tty=0 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
