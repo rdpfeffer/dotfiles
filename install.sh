@@ -92,5 +92,5 @@ brew install gpg
 brew install pandoc
 
 # Mac Vim and link vim to mvim
-bew install macvim
+brew install macvim
 ln -s /usr/local/bin/vim /usr/local/bim/mvim
