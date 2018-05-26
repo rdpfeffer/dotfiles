@@ -6,7 +6,7 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `install.sh` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-echo << END
+cat << END
 ======================================
 Installing xcode command line tools
 ======================================
@@ -14,7 +14,7 @@ END
 xcode-select --install
 
 
-echo << END
+cat << END
 ======================================
 Installing Homebrew
 ======================================
@@ -22,7 +22,7 @@ END
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 
-echo << END
+cat << END
 ======================================
 Making Homebrew auto update
 ======================================
@@ -32,7 +32,7 @@ brew tap domt4/autoupdate
 brew autoupdate --start --upgrade --cleanup --enable-notifications
 
 
-echo << END
+cat << END
 ======================================
 Installing essential tools
 ======================================
@@ -43,8 +43,7 @@ brew install ack
 brew install stow
 brew install awscli
 
-
-echo << END
+cat << END
 ======================================
 Installing Download utilities
 ======================================
@@ -54,7 +53,7 @@ brew install wget
 brew install httpie
 
 
-echo << END
+cat << END
 ======================================
 Installing Fancy shell stuff
 ======================================
@@ -71,7 +70,7 @@ brew install htop
 brew install neofetch
 brew install mosh
 
-echo << END
+cat << END
 ======================================
 Installing Bash Utilities
 ======================================
@@ -82,7 +81,7 @@ brew install bats-assert
 brew install bats-file
 brew install shellcheck
 
-echo << END
+cat << END
 ======================================
 Installing Python Utilities
 ======================================
@@ -96,14 +95,14 @@ pip3 install legit
 pip2 install em-keyboard
 brew install pipenv
 
-echo << END
+cat << END
 ======================================
 Installing Git Utilities
 ======================================
 END
 brew install gist
 
-echo << END
+cat << END
 ======================================
 Installing Other languages
 ======================================
@@ -112,7 +111,7 @@ brew install lua
 brew install node
 brew install ruby
 
-echo << END
+cat << END
 ======================================
 Installing Fun stuff
 ======================================
@@ -122,7 +121,7 @@ brew install cowsay
 brew install sl
 gem install lolcat
 
-echo << END
+cat << END
 ======================================
 Installing Network Utilities
 ======================================
@@ -130,7 +129,7 @@ END
 brew install sshuttle
 npm install --global speed-test
 
-echo << END
+cat << END
 ======================================
 Installing Go Toolchain
 ======================================
@@ -138,7 +137,7 @@ END
 brew install go
 brew install dep
 
-echo << END
+cat << END
 ======================================
 Installing Encryption Utilities
 ======================================
@@ -149,7 +148,7 @@ brew install gpg
 brew install pandoc
 
 
-echo << END
+cat << END
 ======================================
 Installing MacVim (and symlinking vim)
 ======================================

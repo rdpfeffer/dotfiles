@@ -6,14 +6,14 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `uninstall.sh` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-echo << END
+cat << END
 ======================================
 Changing shell back to bash
 ======================================
 END
 chsh -s "$(which bash)" 
 
-echo << END
+cat << END
 ======================================
 Unstowing dotfiles
 ======================================
@@ -22,7 +22,7 @@ pushd "$HOME/dotfiles" || exit
 stow -D git -D  vim -D postgres -D fish -D compat 
 popd || exit
 
-echo << END
+cat << END
 ======================================
 Removing Cache Dir
 ======================================
@@ -30,7 +30,7 @@ END
 # remove the cache dir
 rm -rf "$HOME/.cache"
 
-echo << END
+cat << END
 ======================================
 Removing All Pip packages
 ======================================
@@ -38,7 +38,7 @@ END
 pip2 freeze | xargs pip uninstall -y
 pip3 freeze | xargs pip uninstall -y
 
-echo << END
+cat << END
 ======================================
 Removing All Node Packages
 ======================================
@@ -47,14 +47,14 @@ npm ls -gp --depth=0 \
     | awk -F/ '/node_modules/ && !/\/npm$/ {print $NF}' \
     | xargs npm -g rm
 
-echo << END
+cat << END
 ======================================
 Removing All Gem Packages
 ======================================
 END
 gem uninstall --all --force --executables
 
-echo << END
+cat << END
 ======================================
 Removing All Brew Packages
 ======================================
