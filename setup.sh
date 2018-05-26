@@ -9,7 +9,7 @@ stow postgres
 stow fish
 stow compat
 # Change our shell to the fish shell.
-chsh -s $"(which fish)"
+chsh -s "$(which fish)"
 
 #################################################################################
 # Fish Plugins and Vim Modules must be added after stow has placed the
@@ -27,3 +27,32 @@ vim +PluginInstall +qall
 pushd ~/.vim/bundle/YouCompleteMe
 ./install.py --all
 popd
+
+
+###############################################################################
+# Kill affected applications                                                  #
+###############################################################################
+read -p "Are you sure? [Y/n]" -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+ for app in "Activity Monitor" \
+	"Address Book" \
+	"Calendar" \
+	"cfprefsd" \
+	"Contacts" \
+	"Dock" \
+	"Finder" \
+	"Google Chrome Canary" \
+	"Google Chrome" \
+	"Mail" \
+	"Messages" \
+	"Photos" \
+	"Safari" \
+	"SystemUIServer" \
+	"Terminal"; do
+	killall "${app}" &> /dev/null
+  done
+fi
+
+echo "Done. Note that some of these changes require a logout/restart to take effect."
