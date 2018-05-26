@@ -52,7 +52,7 @@ echo << END
 Removing All Gem Packages
 ======================================
 END
-gem uninstall --all
+gem uninstall --all --force --executables
 
 echo << END
 ======================================
