@@ -155,4 +155,4 @@ Installing MacVim (and symlinking vim)
 ======================================
 END
 brew install macvim
-ln -s /usr/local/bin/vim /usr/local/bin/mvim
+ln -s /usr/local/bin/mvim /usr/local/bin/vim
