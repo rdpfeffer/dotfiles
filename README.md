@@ -14,8 +14,7 @@ Simple tools working together to create a delightful development environment.
 From a totally clean environment, run...
 
 ```bash
-$ source <(curl -fsSL https://raw.githubusercontent.com/rdpfeffer/dotfiles/master/install.sh)
-$ ./install.sh | ./update.sh
+$ curl -fsSL https://raw.githubusercontent.com/rdpfeffer/dotfiles/master/install.sh | bash -
 ```
 
 ## Setup
