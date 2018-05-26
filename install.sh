@@ -6,30 +6,59 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `install.sh` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Install Xcode Command Line Tools.
+echo << END
+======================================
+Installing xcode command line tools
+======================================
+END
 xcode-select --install
 
-# Install Homebrew.
+
+echo << END
+======================================
+Installing Homebrew
+======================================
+END
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# Install brew basics (auto-updating).
+
+echo << END
+======================================
+Making Homebrew auto update
+======================================
+END
 brew install terminal-notifier
 brew tap domt4/autoupdate
 brew autoupdate --start --upgrade --cleanup --enable-notifications
 
-# Install brew essentials.
+
+echo << END
+======================================
+Installing essential tools
+======================================
+END
 brew install heroku
 brew install git
 brew install ack
 brew install stow
 brew install awscli
 
-# Install download utilities.
+
+echo << END
+======================================
+Installing Download utilities
+======================================
+END
 brew install youtube-dl
 brew install wget
 brew install httpie
 
-# Install fancy shell stuff.
+
+echo << END
+======================================
+Installing Fancy shell stuff
+======================================
+END
 brew install fish
 brew install grc
 brew install direnv
@@ -42,55 +71,88 @@ brew install htop
 brew install neofetch
 brew install mosh
 
-# Install bash utilities.
+echo << END
+======================================
+Installing Bash Utilities
+======================================
+END
 brew tap kaos/shell
 brew install bats
 brew install bats-assert
 brew install bats-file
 brew install shellcheck
 
-# Install Python utlitlies.
+echo << END
+======================================
+Installing Python Utilities
+======================================
+END
 brew install python
 brew install python@2
 brew install pypy
 brew install pypy3
 brew install ipython
-
-# Python utilities.
 pip3 install legit
 pip2 install em-keyboard
-
-# Pipenv!
 brew install pipenv
 
-# Install git utilities.
+echo << END
+======================================
+Installing Git Utilities
+======================================
+END
 brew install gist
 
-# Install other languages.
+echo << END
+======================================
+Installing Other languages
+======================================
+END
 brew install lua
 brew install node
 brew install ruby
 
-# Install fun stuff.
+echo << END
+======================================
+Installing Fun stuff
+======================================
+END
 brew install fortune
 brew install cowsay
 brew install sl
 gem install lolcat
 
-# Install network utilities
+echo << END
+======================================
+Installing Network Utilities
+======================================
+END
 brew install sshuttle
 npm install --global speed-test
 
-# Go stuff.
+echo << END
+======================================
+Installing Go Toolchain
+======================================
+END
 brew install go
 brew install dep
 
-# GPG stuff.
+echo << END
+======================================
+Installing Encryption Utilities
+======================================
+END
 brew install gpg
 
 # Pandoc
 brew install pandoc
 
-# Mac Vim and link vim to mvim
+
+echo << END
+======================================
+Installing MacVim (and symlinking vim)
+======================================
+END
 brew install macvim
-ln -s /usr/local/bin/vim /usr/local/bim/mvim
+ln -s /usr/local/bin/vim /usr/local/bin/mvim
