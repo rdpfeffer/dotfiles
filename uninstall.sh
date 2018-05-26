@@ -6,30 +6,59 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `uninstall.sh` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Set the default shell back to fish
+echo << END
+======================================
+Changing shell back to bash
+======================================
+END
 chsh -s "$(which bash)" 
 
-# Unstow rc files etc.
+echo << END
+======================================
+Unstowing dotfiles
+======================================
+END
 pushd "$HOME/dotfiles" || exit
 stow -D git -D  vim -D postgres -D fish -D compat 
 popd || exit
 
+echo << END
+======================================
+Removing Cache Dir
+======================================
+END
 # remove the cache dir
 rm -rf "$HOME/.cache"
 
-# Remove all pip packages
+echo << END
+======================================
+Removing All Pip packages
+======================================
+END
 pip2 freeze | xargs pip uninstall -y
 pip3 freeze | xargs pip uninstall -y
 
-# Remove all node packages
+echo << END
+======================================
+Removing All Node Packages
+======================================
+END
 npm ls -gp --depth=0 \
     | awk -F/ '/node_modules/ && !/\/npm$/ {print $NF}' \
     | xargs npm -g rm
 
-# Remove all gems
+echo << END
+======================================
+Removing All Gem Packages
+======================================
+END
 gem uninstall --all
 
-# Remove all brewed packages
+echo << END
+======================================
+Removing All Brew Packages
+======================================
+END
 brew list | xargs brew uninstall --force
 rm /usr/local/bin/vim
 
