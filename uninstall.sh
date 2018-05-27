@@ -24,11 +24,10 @@ popd || exit
 
 cat << END
 ======================================
-Removing Cache Dir
+Removing Remaining Dotfile Dirs
 ======================================
 END
-# remove the cache dir
-rm -rf "$HOME/.cache"
+rm -rf "$HOME/.cache" "$HOME/.vim" 
 
 cat << END
 ======================================
