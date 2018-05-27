@@ -32,7 +32,7 @@ popd
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
-read -p "Are you sure? [Y/n]" -n 1 -r
+read -p "Restarting Applications. Ready to restart? [Y/n]" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
