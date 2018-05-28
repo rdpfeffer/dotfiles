@@ -18,7 +18,6 @@ set shell=/bin/bash
 
 "-----------------------------------------------------------
 " Plugin Management
-execute pathogen#infect()
 
 " set the runtime path to include Vundle and initialize 
 set rtp+=~/.vim/bundle/Vundle.vim
