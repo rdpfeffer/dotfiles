@@ -75,5 +75,4 @@ Restoring Terminal to factory state
 END
 rm ~/Library/Preferences/com.apple.Terminal.plist*
 rm -rf ~/Library/Saved\ Application\ State/com.apple.Terminal.savedState/
-rm ~/.bash_profile
 killall Terminal
