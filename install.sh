@@ -104,6 +104,7 @@ Installing Git Utilities
 ======================================
 END
 brew install gist
+brew install diff-so-fancy
 
 cat << END
 ======================================
