@@ -18,7 +18,9 @@ stow vim
 stow postgres
 stow fish
 stow compat
-stow terninal
+rm "$HOME/Library/Preferences/com.apple.Terminal.plist"
+rm -rf "$HOME/Library/Saved\ Application\ State/com.apple.Terminal.savedState"
+stow terminal
 
 cat << END
 ===============================================================================
