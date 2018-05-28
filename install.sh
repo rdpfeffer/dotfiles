@@ -96,6 +96,7 @@ brew install ipython
 pip3 install legit
 pip2 install em-keyboard
 brew install pipenv
+brew install pyenv
 
 cat << END
 ======================================
