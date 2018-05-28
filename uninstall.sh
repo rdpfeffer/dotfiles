@@ -27,7 +27,7 @@ cat << END
 Removing Remaining Dotfile Dirs
 ======================================
 END
-rm -rf "$HOME/.cache" "$HOME/.vim" 
+rm -rf "$HOME/.cache" "$HOME/.vim" "$HOME/.config"
 
 cat << END
 ======================================
