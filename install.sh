@@ -70,6 +70,7 @@ brew install mas
 brew install htop
 brew install neofetch
 brew install mosh
+brew install homebrew/cask-fonts/font-roboto-mono-for-powerline
 
 cat << END
 ======================================
