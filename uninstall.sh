@@ -19,7 +19,12 @@ Unstowing dotfiles
 ======================================
 END
 pushd "$HOME/dotfiles" || exit
-stow -D git -D  vim -D postgres -D fish -D compat -D terminal
+stow -D git
+stow -D vim
+stow -D postgres
+stow -D fish
+stow -D compat
+stow -D terminal
 popd || exit
 
 cat << END
