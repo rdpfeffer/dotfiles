@@ -73,6 +73,7 @@ cat << END
 Restoring Terminal to factory state
 ======================================
 END
+defaults delete com.apple.Terminal
 rm ~/Library/Preferences/com.apple.Terminal.plist*
 rm -rf ~/Library/Saved\ Application\ State/com.apple.Terminal.savedState/
 killall Terminal
