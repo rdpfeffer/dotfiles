@@ -19,7 +19,7 @@ stow postgres
 stow fish
 stow compat
 rm "$HOME/Library/Preferences/com.apple.Terminal.plist"
-rm -rf "$HOME/Library/Saved\ Application\ State/com.apple.Terminal.savedState"
+rm -rf "$HOME/Library/Saved Application State/com.apple.Terminal.savedState"
 stow terminal
 
 cat << END
@@ -56,8 +56,9 @@ cat << END
 Loading Vim Modules
 ===============================================================================
 END
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim +PlugInstall +qall
 
 
 cat << END

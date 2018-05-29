@@ -19,32 +19,38 @@ set shell=/bin/bash
 "-----------------------------------------------------------
 " Plugin Management
 
-" set the runtime path to include Vundle and initialize 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set the runtime path to include Vim-Plug and initialize 
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Plugins to enhance VIM
+Plug 'jnurmine/Zenburn', { 'commit': '2cacfcb222d9db34a8d1a13bb8bb814f039b98cd' }
+Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/', 'commit': 'a5dd717ac44223160ff84b13a1513e5a88615292' }
+Plug 'scrooloose/nerdtree', { 'commit': '35953042fbf5535a7e905b52a6973c3f7f8a5536' }
+Plug 'scrooloose/nerdcommenter', { 'commit': 'e679d8a34193d1ac93b98ed792cdde7c9b1104a1' }
+Plug 'kien/ctrlp.vim', { 'commit': '564176f01d7f3f7f8ab452ff4e1f5314de7b0981' }
 
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'Konfekt/FastFold'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jnurmine/Zenburn'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'python-mode/python-mode', { 'branch': 'develop' }
-Plugin 'chrisbra/csv.vim'
-Plugin 'itspriddle/vim-marked'
-Plugin 'airblade/vim-gitgutter'
+" Plugins giving completion and highlighting support
+Plug 'Valloric/YouCompleteMe', { 'commit': 'e5b28f5c32fd34ebe05a8658e9e4c0d9ce831581' }
+Plug 'vim-syntastic/syntastic', { 'commit': 'd17b98cff364730af34fd853fbbe4fbbae226a3d' }
 
-" List ends here. Plugins become visible to Vim after this call.
-call vundle#end()
+" Plugins to integrate git
+Plug 'airblade/vim-gitgutter', { 'commit': 'c4301f9a103ac1429d05131e7debdac5eb6c4c23' }
+Plug 'tpope/vim-fugitive', { 'commit': 'cde670ee81e4fd0945e97111d08a901788c3922b' }
+
+" Plugins to integrate python
+Plug 'Konfekt/FastFold', { 'commit': '720b30fefdde2a4a55cf5a950ce12a069f625e30' }
+Plug 'tmhedberg/SimpylFold', { 'commit': 'aa0371d9d708388f3ba385ccc67a7504586a20d9' }
+Plug 'vim-scripts/indentpython.vim', { 'commit': '6aaddfde21fe9e7acbe448b92b3cbb67f2fe1fc1' }
+Plug 'python-mode/python-mode', { 'branch': 'develop', 'commit': 'a92bfa476467822e5723edb689cb1e80c13da52d' }
+Plug 'nvie/vim-flake8', { 'commit': '91818a7d5f5a0af5139e9adfedc9d00fa963e699' }
+
+" Plugins to improve working with csv
+Plug 'chrisbra/csv.vim', { 'commit': '14eb57c0e781daac16608216de11a8443bf0b4e9' }
+
+" Plugins to improve working with Markdown 
+Plug 'itspriddle/vim-marked', { 'commit': 'cbafedda5e9fdb21bff0d6c8946678882ad70fc0' }
+
+call plug#end()
 "------------------------------------------------------------
 " Features {{{1
 "
