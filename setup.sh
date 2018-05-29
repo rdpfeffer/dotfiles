@@ -58,7 +58,7 @@ Loading Vim Modules
 END
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +PlugInstall +qall
+vim -e +PlugInstall +qall
 
 
 cat << END
@@ -66,7 +66,7 @@ cat << END
 Building YCM 
 ===============================================================================
 END
-pushd ~/.vim/bundle/YouCompleteMe || exit
+pushd ~/.vim/plugged/YouCompleteMe || exit
 ./install.py --all
 popd || exit
 
