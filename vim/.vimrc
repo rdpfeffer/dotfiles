@@ -198,11 +198,15 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "----------------------------------------------------------
+" Repeat last change mad on every line in the current
+" selection
+xnoremap . :norm.<CR>
+"----------------------------------------------------------
 " Enable Folding
 set foldmethod=indent
 set foldlevel=99
 " Enable folding with the spacebar
-nnoremap <space> za
+"nnoremap <space> za
 " Uncomment the following line if you want to see docstrings for folded code
 " let g:SimpylFold_docstring_preview=1
 
@@ -235,7 +239,7 @@ set encoding=utf-8
 " Tell AutoComplete (YCM) to go away when we're done with it
 let g:ycm_autoclose_preview_window_after_completion=1
 "----------------------------------------------------------
-" Map Crtl-g to YCM's goto function 
+" Map <leader>g to YCM's goto function 
 let mapleader = ','
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
