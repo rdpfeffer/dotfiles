@@ -1,26 +1,14 @@
-" URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
- 
-" These options and commands enable some very useful features in Vim, that
-" no user should have to live without.
- 
-" Set 'nocompatible' to ward off unexpected things that your distro might
-" have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
 filetype off
  
-" Vim relies on the bash shell
-set shell=/bin/bash
-
 "-----------------------------------------------------------
 " Plugin Management
 
 " set the runtime path to include Vim-Plug and initialize 
 call plug#begin('~/.vim/plugged')
+
+" Use sensible defaults within vim
+Plug 'tpope/vim-sensible', { 'commit': '2d60332fa5b2b1ea346864245569df426052865a' }
 
 " Plugins to enhance VIM
 Plug 'jnurmine/Zenburn', { 'commit': '2cacfcb222d9db34a8d1a13bb8bb814f039b98cd' }
@@ -51,18 +39,9 @@ Plug 'chrisbra/csv.vim', { 'commit': '14eb57c0e781daac16608216de11a8443bf0b4e9' 
 Plug 'itspriddle/vim-marked', { 'commit': 'cbafedda5e9fdb21bff0d6c8946678882ad70fc0' }
 
 call plug#end()
-"------------------------------------------------------------
-" Features {{{1
-"
-
-" Attempt to determine the type of a file based on its name and possibly its
-" contents. Use this to allow intelligent auto-indenting for each filetype,
-" and for plugins that are filetype specific.
-filetype indent plugin on
- 
 " Enable syntax highlighting
 let python_highlight_all=1
-syntax on
+syntax enable
  
  
 "------------------------------------------------------------
@@ -91,9 +70,6 @@ set hidden
 " set confirm
 " set autowriteall
  
-" Better command-line completion
-set wildmenu
- 
 " Show partial commands in the last line of the screen
 set showcmd
  
@@ -119,24 +95,10 @@ set hlsearch
 set ignorecase
 set smartcase
  
-" Allow backspacing over autoindent, line breaks and start of insert action
-set backspace=indent,eol,start
- 
-" When opening a new line and no filetype-specific indenting is enabled, keep
-" the same indent as the line you're currently on. Useful for READMEs, etc.
-set autoindent
- 
 " Stop certain movements from always going to the first character of a line.
 " While this behaviour deviates from that of Vi, it does what most users
 " coming from other editors would expect.
 set nostartofline
- 
-" Display the cursor position on the last line of the screen or in the status
-" line of a window
-set ruler
- 
-" Always display the status line, even if only one window is displayed
-set laststatus=2
  
 " Instead of failing a command because of unsaved changes, instead raise a
 " dialogue asking if you wish to save changed files.
@@ -159,9 +121,6 @@ set cmdheight=2
  
 " Display line numbers on the left
 set number
- 
-" Quickly time out on keycodes, but never time out on mappings
-set notimeout ttimeout ttimeoutlen=200
  
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
@@ -230,10 +189,6 @@ au BufNewFile,BufRead *.js, *.html, *.css:
 " Flag Bad Whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-"----------------------------------------------------------
-" Make sure VIM knows we're using UTF8
-set encoding=utf-8
 
 "----------------------------------------------------------
 " Tell AutoComplete (YCM) to go away when we're done with it
