@@ -128,6 +128,9 @@ set pastetoggle=<F11>
 
 " Tell vim to lazily redraw the screen
 :set lazyredraw
+
+" Enable spell checking
+set spell spelllang=en_us
  
 "------------------------------------------------------------
 " Indentation options {{{1
