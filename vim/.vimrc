@@ -131,7 +131,7 @@ set pastetoggle=<F11>
 :set lazyredraw
 
 " Enable spell checking
-set spell spelllang=en_us
+"set spell spelllang=en_us
  
 "------------------------------------------------------------
 " Indentation options {{{1
