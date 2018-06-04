@@ -39,7 +39,7 @@ Installing essential tools
 END
 brew install heroku
 brew install git
-brew install ack
+brew install ripgrep
 brew install stow
 brew install awscli
 brew install cmake

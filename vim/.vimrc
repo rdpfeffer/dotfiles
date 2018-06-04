@@ -15,7 +15,8 @@ Plug 'jnurmine/Zenburn', { 'commit': '2cacfcb222d9db34a8d1a13bb8bb814f039b98cd' 
 Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/', 'commit': 'a5dd717ac44223160ff84b13a1513e5a88615292' }
 Plug 'scrooloose/nerdtree', { 'commit': '35953042fbf5535a7e905b52a6973c3f7f8a5536' }
 Plug 'scrooloose/nerdcommenter', { 'commit': 'e679d8a34193d1ac93b98ed792cdde7c9b1104a1' }
-Plug 'kien/ctrlp.vim', { 'commit': '564176f01d7f3f7f8ab452ff4e1f5314de7b0981' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " NOTE: This will also install it on our CLI path"
+Plug 'junegunn/fzf.vim'
 
 " Plugins giving completion and highlighting support
 Plug 'Valloric/YouCompleteMe', { 'commit': 'e5b28f5c32fd34ebe05a8658e9e4c0d9ce831581' }
@@ -171,6 +172,10 @@ set foldlevel=99
 "nnoremap <space> za
 " Uncomment the following line if you want to see docstrings for folded code
 " let g:SimpylFold_docstring_preview=1
+
+"----------------------------------------------------------
+" Map Ctrl-p to fuzzy finder
+nnoremap <C-p> :<C-u>FZF<CR>
 
 "---------------------------------------------------------
 " PEP 8 indentation

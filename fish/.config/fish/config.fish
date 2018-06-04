@@ -38,6 +38,11 @@ if status --is-login
     # VIM!
     set -gx EDITOR vim
 
+    # FZF should use ripgrep when searching for files. This will allow FZF to
+    # show files that have not been added to the git index (which is especially
+    # useful while using vim).
+    set -gx FZF_DEFAULT_COMMAND 'rg --files'
+
     # remove the fish greeting
     set fish_greeting
 
