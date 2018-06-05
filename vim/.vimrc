@@ -17,6 +17,7 @@ Plug 'scrooloose/nerdtree', { 'commit': '35953042fbf5535a7e905b52a6973c3f7f8a553
 Plug 'scrooloose/nerdcommenter', { 'commit': 'e679d8a34193d1ac93b98ed792cdde7c9b1104a1' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " NOTE: This will also install it on our CLI path"
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-projectionist', { 'commit': '3fbebc9bb611209218d3fb8e91e340e4b2f0e56b' }
 
 " Plugins giving completion and highlighting support
 Plug 'Valloric/YouCompleteMe', { 'commit': 'e5b28f5c32fd34ebe05a8658e9e4c0d9ce831581' }
@@ -188,7 +189,7 @@ au BufNewFile,BufRead *.py:
     \ set autoindent
     \ set fileformat=unix
 " For full stack development
-au BufNewFile,BufRead *.js, *.html, *.css:
+au BufNewFile,BufRead *.js,*.html,*.css:
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
