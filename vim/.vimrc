@@ -19,9 +19,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " NOTE: This w
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-projectionist', { 'commit': '3fbebc9bb611209218d3fb8e91e340e4b2f0e56b' }
 
-" Plugins giving completion and highlighting support
+" Plugins giving completion and linting support
 Plug 'Valloric/YouCompleteMe', { 'commit': 'e5b28f5c32fd34ebe05a8658e9e4c0d9ce831581' }
-Plug 'vim-syntastic/syntastic', { 'commit': 'd17b98cff364730af34fd853fbbe4fbbae226a3d' }
+Plug 'w0rp/ale', { 'commit': 'c49ea1a5e336f9b9e31a8de362b42f33aa79eb95' }
 
 " Plugins to integrate git
 Plug 'airblade/vim-gitgutter', { 'commit': 'c4301f9a103ac1429d05131e7debdac5eb6c4c23' }
@@ -221,16 +221,17 @@ set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
 "----------------------------------------------------------
-" Syntastic Settings
+" ALE Settings
+let g:ale_linters = {
+\ 'javascript': ['eslint'],
+\ }
+" Map stuff to call ALE like unimpaired does
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> ]W <Plug>(ale_last)
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 "-----------------------------------------------------------
 " Customize How we Browse Files
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
