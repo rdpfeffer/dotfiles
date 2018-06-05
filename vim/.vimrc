@@ -182,17 +182,18 @@ nnoremap <C-p> :<C-u>FZF<CR>
 " PEP 8 indentation
 au BufNewFile,BufRead *.py:
     \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+    \ softtabstop=4
+    \ shiftwidth=4
+    \ textwidth=79
+    \ expandtab
+    \ autoindent
+    \ fileformat=unix
+
 " For full stack development
 au BufNewFile,BufRead *.js,*.html,*.css:
     \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+    \ softtabstop=2
+    \ shiftwidth=2
 
 "----------------------------------------------------------
 " Flag Bad Whitespace
