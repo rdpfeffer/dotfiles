@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible', { 'commit': '2d60332fa5b2b1ea346864245569df426052865a' }
 
 " Plugins to enhance VIM
-Plug 'jnurmine/Zenburn', { 'commit': '2cacfcb222d9db34a8d1a13bb8bb814f039b98cd' }
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/', 'commit': 'a5dd717ac44223160ff84b13a1513e5a88615292' }
 Plug 'scrooloose/nerdtree', { 'commit': '35953042fbf5535a7e905b52a6973c3f7f8a5536' }
 Plug 'scrooloose/nerdcommenter', { 'commit': 'e679d8a34193d1ac93b98ed792cdde7c9b1104a1' }
@@ -45,12 +45,7 @@ call plug#end()
 let python_highlight_all=1
 syntax enable
  
- 
 "------------------------------------------------------------
-" Must have options {{{1
-"
-" These are highly recommended options.
- 
 " Vim with default settings does not allow easy switching between multiple files
 " in the same editor window. Users can use multiple split windows or multiple
 " tab pages to edit multiple files, but it is still best to enable an option to
@@ -215,10 +210,9 @@ let g:pymode_rope_rename_bind = '<C-c>rr'
 
 "----------------------------------------------------------
 " Color Shceme
-colorscheme zenburn
-" Set the color and show the cursor line in bold
+color dracula
+" Highlight the current line
 set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
 
 "----------------------------------------------------------
 " ALE Settings
