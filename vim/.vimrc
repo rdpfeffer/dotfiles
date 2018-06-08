@@ -20,10 +20,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-projectionist', { 'commit': '3fbebc9bb611209218d3fb8e91e340e4b2f0e56b' }
 Plug 'mhinz/vim-grepper', { 'commit': '04d659c9e0a57e0c3e989069601d2a98df0386c4' }
 Plug 'bronson/vim-trailing-whitespace', { 'commit': '4c596548216b7c19971f8fc94e38ef1a2b55fee6' }
+Plug 'tpope/vim-dispatch', { 'commit': '47729b7831421f20fa40a7d5b3e9b928faf18e75' }
 
-" Plugins giving completion and linting support
+" Plugins giving polyglot completion, linting and testing support
 Plug 'Valloric/YouCompleteMe', { 'commit': 'e5b28f5c32fd34ebe05a8658e9e4c0d9ce831581' }
 Plug 'w0rp/ale', { 'commit': 'c49ea1a5e336f9b9e31a8de362b42f33aa79eb95' }
+Plug 'janko-m/vim-test', {  'commit': '062c489781c995f7e81103fec8a3c07bd2ff1f4b' }
 
 " Plugins to integrate git
 Plug 'airblade/vim-gitgutter', { 'commit': 'c4301f9a103ac1429d05131e7debdac5eb6c4c23' }
@@ -197,6 +199,10 @@ set cursorline
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
 \ }
+
+"----------------------------------------------------------
+" Configuration for vim-test
+let test#strategy = "dispatch"
 
 
 "-----------------------------------------------------------
