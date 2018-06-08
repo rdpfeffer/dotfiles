@@ -18,7 +18,7 @@ Plug 'scrooloose/nerdtree', { 'commit': '35953042fbf5535a7e905b52a6973c3f7f8a553
 
 " ⭐ Make it easier to find things in vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " NOTE: This will also install it on our CLI path"
-Plug 'junegunn/fzf.vim' { 'commit': 'ce82e10630830bc37a50f706cc3b7216d24e5009' }
+Plug 'junegunn/fzf.vim', { 'commit': 'ce82e10630830bc37a50f706cc3b7216d24e5009' }
 Plug 'mhinz/vim-grepper', { 'commit': '04d659c9e0a57e0c3e989069601d2a98df0386c4' }
 
 " ⭐ Plugins that help with project specific editor config
