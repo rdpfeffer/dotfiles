@@ -15,6 +15,7 @@ Plug 'tpope/vim-dispatch', { 'commit': '47729b7831421f20fa40a7d5b3e9b928faf18e75
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/', 'commit': 'a5dd717ac44223160ff84b13a1513e5a88615292' }
 Plug 'scrooloose/nerdtree', { 'commit': '35953042fbf5535a7e905b52a6973c3f7f8a5536' }
+Plug 'Yggdroot/indentLine', { 'commit': '4e4964d148f552bdec8c4271ed94d77eaa6c7543' }
 
 " ⭐ Make it easier to find things in vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " NOTE: This will also install it on our CLI path"
@@ -28,6 +29,7 @@ Plug 'sgur/vim-editorconfig', { 'commit': '46f506fd2c31331aada4969c50c2b140c990f
 " ⭐ Plugins adding conveniences for common text editing tasks
 Plug 'bronson/vim-trailing-whitespace', { 'commit': '4c596548216b7c19971f8fc94e38ef1a2b55fee6' }
 Plug 'scrooloose/nerdcommenter', { 'commit': 'e679d8a34193d1ac93b98ed792cdde7c9b1104a1' }
+Plug 'AndrewRadev/splitjoin.vim', { 'commit': '122e6702f9d75de64f320328f54d7408c28ff432' }
 
 " ⭐ Plugins giving polyglot completion, linting and testing support
 Plug 'Valloric/YouCompleteMe', { 'commit': 'e5b28f5c32fd34ebe05a8658e9e4c0d9ce831581' }
