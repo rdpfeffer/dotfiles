@@ -17,6 +17,9 @@ Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/', 'commit': 'a5dd71
 Plug 'scrooloose/nerdtree', { 'commit': '35953042fbf5535a7e905b52a6973c3f7f8a5536' }
 Plug 'Yggdroot/indentLine', { 'commit': '4e4964d148f552bdec8c4271ed94d77eaa6c7543' }
 
+" ⭐ Add useful key mappings to vim
+Plug 'tpope/vim-unimpaired', { 'commit': '4afeced83cb6bf32ba508fd57ad7dc45c96478f3' }
+
 " ⭐ Make it easier to find things in vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " NOTE: This will also install it on our CLI path"
 Plug 'junegunn/fzf.vim', { 'commit': 'ce82e10630830bc37a50f706cc3b7216d24e5009' }
