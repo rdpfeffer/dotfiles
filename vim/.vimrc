@@ -44,8 +44,6 @@ Plug 'tpope/vim-fugitive', { 'commit': 'cde670ee81e4fd0945e97111d08a901788c3922b
 Plug 'Konfekt/FastFold', { 'commit': '720b30fefdde2a4a55cf5a950ce12a069f625e30' }
 Plug 'tmhedberg/SimpylFold', { 'commit': 'aa0371d9d708388f3ba385ccc67a7504586a20d9' }
 Plug 'vim-scripts/indentpython.vim', { 'commit': '6aaddfde21fe9e7acbe448b92b3cbb67f2fe1fc1' }
-Plug 'python-mode/python-mode', { 'branch': 'develop', 'commit': 'a92bfa476467822e5723edb689cb1e80c13da52d' }
-Plug 'nvie/vim-flake8', { 'commit': '91818a7d5f5a0af5139e9adfedc9d00fa963e699' }
 
 " ⭐ Plugins to improve working with csv
 Plug 'chrisbra/csv.vim', { 'commit': '14eb57c0e781daac16608216de11a8443bf0b4e9' }
@@ -208,6 +206,10 @@ set cursorline
 " ALE Settings
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
+\ 'python': ['flake8', 'mypy', 'pylint']
+\ }
+let g:ale_fixers = {
+\ 'python': ['isort', 'black'],
 \ }
 
 "----------------------------------------------------------

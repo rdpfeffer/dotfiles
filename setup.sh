@@ -18,6 +18,8 @@ stow vim
 stow postgres
 stow fish
 stow compat
+stow python
+
 rm "$HOME/Library/Preferences/com.apple.Terminal.plist"
 rm -rf "$HOME/Library/Saved Application State/com.apple.Terminal.savedState"
 stow terminal

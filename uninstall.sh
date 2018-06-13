@@ -25,6 +25,7 @@ stow -D postgres
 stow -D fish
 stow -D compat
 stow -D terminal
+stow -D python
 popd || exit
 
 cat << END
