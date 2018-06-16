@@ -17,8 +17,14 @@ Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/', 'commit': 'a5dd71
 Plug 'scrooloose/nerdtree', { 'commit': '35953042fbf5535a7e905b52a6973c3f7f8a5536' }
 Plug 'Yggdroot/indentLine', { 'commit': '4e4964d148f552bdec8c4271ed94d77eaa6c7543' }
 
-" ⭐ Add useful key mappings to vim
+" ⭐ Add useful key mappings and text objects to vim
 Plug 'tpope/vim-unimpaired', { 'commit': '4afeced83cb6bf32ba508fd57ad7dc45c96478f3' }
+Plug 'kana/vim-textobj-user', { 'commit': 'e231b65797b5765b3ee862d71077e9bd56f3ca3e' }
+Plug 'thinca/vim-textobj-between', { 'commit': 'b4986c108a6c335d9619fc035b8c0d3f6f0b8183' } " af{char}/if{char}
+Plug 'Julian/vim-textobj-brace', { 'commit': 'b936fbd99e16dcc6e4d62d5e81a73d9ad37fd576' } " aj/ij
+Plug 'glts/vim-textobj-comment', { 'commit': '58ae4571b76a5bf74850698f23d235eef991dd4b' } " ac/ic
+Plug 'gilligan/textobj-gitgutter', { 'commit': '4bcaa031fea6cb080e4824e75522273e6090f1b6' } " ah/ih
+Plug 'glts/vim-textobj-indblock', { 'commit': 'fe7031cb8cebe7ede82234fedb4959f51ad98fd7' } " ao/io
 
 " ⭐ Make it easier to find things in vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " NOTE: This will also install it on our CLI path"
