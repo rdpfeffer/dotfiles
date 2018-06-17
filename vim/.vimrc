@@ -26,7 +26,7 @@ Plug 'glts/vim-textobj-comment', { 'commit': '58ae4571b76a5bf74850698f23d235eef9
 Plug 'glts/vim-textobj-indblock', { 'commit': 'fe7031cb8cebe7ede82234fedb4959f51ad98fd7' } " ao/io
 Plug 'Julian/vim-textobj-brace', { 'commit': 'b936fbd99e16dcc6e4d62d5e81a73d9ad37fd576' } " aj/ij
 Plug 'thinca/vim-textobj-between', { 'commit': 'b4986c108a6c335d9619fc035b8c0d3f6f0b8183' } " af{char}/if{char}
-Plug 'easymotion/vim-easymotion', { 'commit': '1a0244c90c3ff46219cf9597bb13662be4232407' } 
+Plug 'easymotion/vim-easymotion', { 'commit': '1a0244c90c3ff46219cf9597bb13662be4232407' }
 
 " ⭐ Make it easier to find things in vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " NOTE: This will also install it on our CLI path"
