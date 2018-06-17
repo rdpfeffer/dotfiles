@@ -44,6 +44,8 @@ Plug 'AndrewRadev/splitjoin.vim', { 'commit': '122e6702f9d75de64f320328f54d7408c
 
 " ⭐ Plugins giving polyglot completion, linting and testing support
 Plug 'Valloric/YouCompleteMe', { 'commit': 'e5b28f5c32fd34ebe05a8658e9e4c0d9ce831581' }
+Plug 'SirVer/ultisnips', { 'commit': '6fdc3647f72e0a1f321ea6bd092ecd01f7c187ba' }
+Plug 'honza/vim-snippets', { 'commit': '62f46770378ab899f40c334de264ccd64dc2db57' }
 Plug 'w0rp/ale', { 'commit': 'c49ea1a5e336f9b9e31a8de362b42f33aa79eb95' }
 Plug 'janko-m/vim-test', {  'commit': '062c489781c995f7e81103fec8a3c07bd2ff1f4b' }
 
@@ -320,3 +322,16 @@ xnoremap . :norm.<CR>
 
 " Fix trailing whitespace
 nnoremap <Leader>fw :FixWhitespace<CR>
+
+"                ----------------------------------------------
+"                "🤖 Automatic commpletiopn and snippets ⚡️ ✂️
+"
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
