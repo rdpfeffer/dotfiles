@@ -95,6 +95,7 @@ brew install pypy3
 brew install ipython
 pip3 install legit
 pip2 install em-keyboard
+pip2 install pre-commit --upgrade
 brew install pipenv
 brew install pyenv
 
