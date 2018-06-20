@@ -22,7 +22,7 @@ Plug 'tpope/vim-unimpaired', { 'commit': '4afeced83cb6bf32ba508fd57ad7dc45c96478
 Plug 'kana/vim-textobj-user', { 'commit': 'e231b65797b5765b3ee862d71077e9bd56f3ca3e' }
 Plug 'kana/vim-textobj-indent', { 'commit': 'deb76867c302f933c8f21753806cbf2d8461b548' } " ai/ii
 Plug 'gilligan/textobj-gitgutter', { 'commit': '4bcaa031fea6cb080e4824e75522273e6090f1b6' } " ah/ih
-Plug 'glts/vim-textobj-comment', { 'commit': '58ae4571b76a5bf74850698f23d235eef991dd4b' } " ac/ic
+Plug 'bps/vim-textobj-python', { 'commit': '585c76d58f1a9c458c87471b072c9ad9eb159ae2' } " functions:ad/id, classes: ac/ic
 Plug 'glts/vim-textobj-indblock', { 'commit': 'fe7031cb8cebe7ede82234fedb4959f51ad98fd7' } " ao/io
 Plug 'Julian/vim-textobj-brace', { 'commit': 'b936fbd99e16dcc6e4d62d5e81a73d9ad37fd576' } " aj/ij
 Plug 'thinca/vim-textobj-between', { 'commit': 'b4986c108a6c335d9619fc035b8c0d3f6f0b8183' } " af{char}/if{char}
@@ -331,3 +331,24 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+"                              ------------------
+"                              ✏️  Text Objects ☑️ 
+"
+
+" Prevent bps/vim-textobj-python from conflicting with the vim-textobj-between
+let g:textobj_python_no_default_key_mappings = 1
+call textobj#user#map('python', {
+      \   'class': {
+      \     'select-a': '<buffer>ac',
+      \     'select-i': '<buffer>ic',
+      \     'move-n': '<buffer>]pc',
+      \     'move-p': '<buffer>[pc',
+      \   },
+      \   'function': {
+      \     'select-a': '<buffer>ad',
+      \     'select-i': '<buffer>id',
+      \     'move-n': '<buffer>]pd',
+      \     'move-p': '<buffer>[pd',
+      \   }
+      \ })
