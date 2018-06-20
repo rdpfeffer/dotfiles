@@ -236,12 +236,6 @@ let test#strategy = "dispatch"
 " Customize How we Browse Files
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let NERDTreeShowHidden=1
-" Start Nerdtree on startup!
-augroup NERDTree:
-    autocmd!
-    autocmd VimEnter * NERDTree
-    autocmd VimEnter * wincmd p
-augroup END
 
 "-----------------------------------------------------------
 " Customize Grepper
