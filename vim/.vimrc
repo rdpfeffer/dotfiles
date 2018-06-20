@@ -41,11 +41,13 @@ Plug 'sgur/vim-editorconfig', { 'commit': '46f506fd2c31331aada4969c50c2b140c990f
 Plug 'bronson/vim-trailing-whitespace', { 'commit': '4c596548216b7c19971f8fc94e38ef1a2b55fee6' }
 Plug 'scrooloose/nerdcommenter', { 'commit': 'e679d8a34193d1ac93b98ed792cdde7c9b1104a1' }
 Plug 'AndrewRadev/splitjoin.vim', { 'commit': '122e6702f9d75de64f320328f54d7408c28ff432' }
+Plug 'cohama/lexima.vim', { 'commit': '85cfff9f7d16bd1ad76fcfedca6ab4982af6ba9d' }
 
 " ⭐ Plugins giving polyglot completion, linting and testing support
 Plug 'Valloric/YouCompleteMe', { 'commit': 'e5b28f5c32fd34ebe05a8658e9e4c0d9ce831581' }
 Plug 'SirVer/ultisnips', { 'commit': '6fdc3647f72e0a1f321ea6bd092ecd01f7c187ba' }
 Plug 'honza/vim-snippets', { 'commit': '62f46770378ab899f40c334de264ccd64dc2db57' }
+Plug 'tpope/vim-endwise', { 'commit': '1f76f7a1aebac3510c0f6c7f28be5572ea56d19c' }
 Plug 'w0rp/ale', { 'commit': 'c49ea1a5e336f9b9e31a8de362b42f33aa79eb95' }
 Plug 'janko-m/vim-test', {  'commit': '062c489781c995f7e81103fec8a3c07bd2ff1f4b' }
 
