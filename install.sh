@@ -43,6 +43,8 @@ brew install ripgrep
 brew install stow
 brew install awscli
 brew install cmake
+brew install docker
+brew install docker-machine
 
 cat << END
 ======================================
