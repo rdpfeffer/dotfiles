@@ -13,7 +13,7 @@ Plug 'tpope/vim-dispatch', { 'commit': '47729b7831421f20fa40a7d5b3e9b928faf18e75
 
 " ⭐ Enhance Look and feel of vim
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/', 'commit': 'a5dd717ac44223160ff84b13a1513e5a88615292' }
+Plug 'vim-airline/vim-airline', { 'commit': 'b790fd212088c0c882f16416f07cbd6035882028' }
 Plug 'scrooloose/nerdtree', { 'commit': '35953042fbf5535a7e905b52a6973c3f7f8a5536' }
 Plug 'Yggdroot/indentLine', { 'commit': '4e4964d148f552bdec8c4271ed94d77eaa6c7543' }
 
@@ -44,7 +44,7 @@ Plug 'AndrewRadev/splitjoin.vim', { 'commit': '122e6702f9d75de64f320328f54d7408c
 Plug 'cohama/lexima.vim', { 'commit': '85cfff9f7d16bd1ad76fcfedca6ab4982af6ba9d' }
 
 " ⭐ Plugins giving polyglot completion, linting and testing support
-Plug 'Valloric/YouCompleteMe', { 'commit': 'e5b28f5c32fd34ebe05a8658e9e4c0d9ce831581' }
+Plug 'Valloric/YouCompleteMe', { 'commit': 'c209cdbbfcc90c9ab8fa078beb2fe668743b4d0e' }
 Plug 'SirVer/ultisnips', { 'commit': '6fdc3647f72e0a1f321ea6bd092ecd01f7c187ba' }
 Plug 'honza/vim-snippets', { 'commit': '62f46770378ab899f40c334de264ccd64dc2db57' }
 Plug 'tpope/vim-endwise', { 'commit': '1f76f7a1aebac3510c0f6c7f28be5572ea56d19c' }
