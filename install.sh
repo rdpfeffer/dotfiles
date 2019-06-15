@@ -72,6 +72,7 @@ brew install mas
 brew install htop
 brew install neofetch
 brew install mosh
+brew install hexyl
 brew install homebrew/cask-fonts/font-meslo-for-powerline
 
 cat << END

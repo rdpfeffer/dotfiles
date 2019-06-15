@@ -69,7 +69,7 @@ Building YCM
 ===============================================================================
 END
 pushd ~/.vim/plugged/YouCompleteMe || exit
-./install.py --all
+./install.py --clang-completer --go-completer --java-completer
 popd || exit
 
 cat << END
