@@ -42,6 +42,7 @@ Removing All Pip packages
 END
 pip2 freeze | xargs pip uninstall -y
 pip3 freeze | xargs pip uninstall -y
+POETRY_UNINSTALL=1 bash -c 'curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python'
 
 cat << END
 ======================================

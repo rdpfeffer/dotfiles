@@ -99,8 +99,8 @@ brew install ipython
 pip3 install legit
 pip2 install em-keyboard
 pip2 install pre-commit --upgrade
-brew install poetry
 brew install pyenv
+curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
 
 cat << END
 ======================================
