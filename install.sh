@@ -45,6 +45,10 @@ brew install awscli
 brew install cmake
 brew install docker
 brew install docker-machine
+brew install \
+  coreutils automake autoconf openssl \
+  libyaml readline libxslt libtool unixodbc \
+  unzip curl
 
 cat << END
 ======================================
@@ -74,6 +78,8 @@ brew install neofetch
 brew install mosh
 brew install hexyl
 brew install homebrew/cask-fonts/font-meslo-for-powerline
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.3
+
 
 cat << END
 ======================================
@@ -92,7 +98,6 @@ Installing Python Utilities
 ======================================
 END
 brew install python
-brew install python@2
 brew install pypy
 brew install pypy3
 brew install ipython

@@ -28,7 +28,7 @@ if status --is-login
     set SHELL /usr/local/bin/fish
 
     # set -gx PATH /Users/rpfeffer/.local/bin $PATH
-    set -gx PATH /usr/local/opt/python@2/bin $HOME/.poetry/bin $PATH
+    set -gx PATH $HOME/.poetry/bin $PATH
     set -gx ANDROID_NDK_HOME /usr/local/share/android-ndk
     set -gx ANDROID_SDK_ROOT /usr/local/share/android-sdk
 
