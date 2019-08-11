@@ -6,6 +6,7 @@ Configuring MacOS
 ===============================================================================
 END
 source ./macos.sh
+touch ~/.hushlogin
 
 
 cat << END
