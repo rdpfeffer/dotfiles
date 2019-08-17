@@ -226,6 +226,11 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \ 'python': ['isort', 'black'],
 \ }
+let g:ale_python_flake8_executable = 'poetry'
+let g:ale_python_mypy_executable = 'poetry'
+let g:ale_python_pylint_executable = 'poetry'
+let g:ale_python_isort_executable = 'poetry'
+let g:ale_python_black_executable = 'poetry'
 
 "----------------------------------------------------------
 " Configuration for vim-test
