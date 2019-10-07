@@ -32,9 +32,6 @@ if status --is-login
     set -gx ANDROID_NDK_HOME /usr/local/share/android-ndk
     set -gx ANDROID_SDK_ROOT /usr/local/share/android-sdk
 
-    # set -x PYENV_ROOT $HOME/.pyenv
-    # set -x PATH $PYENV_ROOT/bin $PATH
-
     # VIM!
     set -gx EDITOR vim
 
@@ -52,6 +49,10 @@ if status --is-login
             source $profile
         end
     end
+
+    # Add asdf support
+    source ~/.asdf/asdf.fish
+
 end
 
 set GPG_TTY (tty)
