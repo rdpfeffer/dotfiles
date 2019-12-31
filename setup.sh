@@ -17,6 +17,9 @@ END
 stow git
 stow vim
 stow postgres
+
+# Remove the fishfile if it already exists
+rm ~/.config/fish/fishfile
 stow fish
 stow compat
 stow python
