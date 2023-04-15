@@ -1,7 +1,7 @@
 [user]
     name = Ryan Pfeffer
-    email = ryan.pfeffer@plangrid.com
-    signingkey = D4AF5D51F6F35579
+    email =
+    signingkey =
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
@@ -25,7 +25,7 @@
 [grep]
     linenumber = true
 [commit]
-    gpgsign = false
+    gpgsign = true
 [color]
     ui = true
 [color "diff-highlight"]
