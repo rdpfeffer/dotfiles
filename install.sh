@@ -24,7 +24,8 @@ Making Homebrew auto update
 END
 brew install terminal-notifier
 brew tap domt4/autoupdate
-brew autoupdate --start --upgrade --cleanup --enable-notification
+mkdir -p $HOME/Library/LaunchAgents
+brew autoupdate --start --upgrade --cleanup
 
 
 cat << END
@@ -73,9 +74,9 @@ brew install neofetch
 brew install mosh
 brew install hexyl
 brew tap homebrew/cask-fonts
-brew cask install font-hack
+brew install --cask font-hack
 brew install homebrew/cask-fonts/font-meslo-for-powerline
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.3
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
 
 
 cat << END
