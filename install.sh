@@ -6,13 +6,6 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `install.sh` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-cat << END
-======================================
-Installing xcode command line tools
-======================================
-END
-xcode-select --install
-
 
 cat << END
 ======================================
