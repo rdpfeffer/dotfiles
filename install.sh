@@ -13,6 +13,8 @@ Installing Homebrew
 ======================================
 END
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# make sure brew is on the PATH for the remainder of the script
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 
 cat << END
