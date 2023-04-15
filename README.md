@@ -15,7 +15,7 @@ From a totally clean environment, run...
 
 ```bash
 xcode-select --install
-curl -fsSL https://raw.githubusercontent.com/rdpfeffer/dotfiles/master/install.sh | zsh -
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/rdpfeffer/dotfiles/master/install.sh)"
 ```
 
 ## Setup
