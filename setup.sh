@@ -33,8 +33,11 @@ cat << END
 Changing to the fish shell
 ===============================================================================
 END
-# Change our shell to the fish shell.
-chsh -s "$(which fish)"
+# Change our shell to the fish shell. MacOS now requires custom shells be added to
+# /etc/shells before it will allow them.
+# https://stackoverflow.com/questions/49048720/unable-to-modify-etc-shells-on-macos-to-include-brew-installed-version-of-bash
+echo "$(which fish)" | sudo tee -a /etc/shells
+chpass -s "$(which fish)"
 
 cat << END
 ===============================================================================
