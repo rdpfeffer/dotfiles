@@ -24,7 +24,7 @@ Making Homebrew auto update
 END
 brew install terminal-notifier
 brew tap domt4/autoupdate
-brew autoupdate --start --upgrade --cleanup --enable-notifications
+brew autoupdate --start --upgrade --cleanup --enable-notification
 
 
 cat << END
