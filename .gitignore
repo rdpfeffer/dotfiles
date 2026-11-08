@@ -1,1 +1,12 @@
 window_*.data
+
+# Local credentials and agent worktrees must not be committed.
+/notable/
+/.claude/
+**/config.local.fish
+.gitconfig.local
+
+# Editor temporary files.
+*.swp
+*.swo
+.DS_Store
