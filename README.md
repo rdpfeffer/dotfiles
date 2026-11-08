@@ -1,7 +1,8 @@
 # Ryan Pfeffer's Dotfiles
 
-macOS configuration for [Zed](https://zed.dev), [Fish](https://fishshell.com),
-Git, and PostgreSQL. [GNU Stow](https://www.gnu.org/software/stow/) manages
+macOS configuration for [Zed](https://zed.dev), [Ghostty](https://ghostty.org),
+[Fish](https://fishshell.com), Git, and PostgreSQL. Editors and terminals use
+Red Hat Mono. [GNU Stow](https://www.gnu.org/software/stow/) manages
 the configuration links. Fish uses its built-in prompt and features; no plugin
 manager is required.
 
@@ -21,8 +22,8 @@ cd ~/dotfiles
 `install.sh` installs missing Brewfile packages. It does not upgrade existing
 packages. It does not install Homebrew or run remote scripts.
 
-`setup.sh` links the Git, Fish, PostgreSQL, and Python configuration into
-`$HOME`. It works from any directory. It previews all links first and stops
+`setup.sh` links the Git, Fish, PostgreSQL, Python, Ghostty, and Zed configuration
+into `$HOME`. It works from any directory. It previews all links first and stops
 on conflicts. It does not overwrite files, change the login shell, apply macOS
 preferences, or install language runtimes through asdf.
 
@@ -48,7 +49,39 @@ The Brewfile installs the stable Zed app. If `zed` is not on PATH, use Zed's
 command palette to run **cli: install**. Git and `EDITOR` use `zed --wait`,
 so a commit waits until you close its message file.
 
-Zed settings remain local. This repo does not replace an existing Zed profile.
+The tracked Zed settings preserve the existing font sizes, themes, window
+behavior, Fish shell, and Vim keybindings. Red Hat Mono is set for both the
+editor buffer and the integrated terminal. Vim keybindings do not require Vim
+to be installed. Install the Catppuccin theme extension in Zed if it is missing.
+
+### Ghostty and fonts
+
+The Brewfile installs Ghostty and Red Hat Mono. The old Hack and Meslo font
+entries have been removed; existing fonts are not uninstalled.
+
+The tracked Ghostty config preserves the local Desert theme and Red Hat Mono.
+It uses the same macOS path as the existing installation:
+
+- Ghostty: `~/Library/Application Support/com.mitchellh.ghostty/config`
+- Zed: `~/.config/zed/settings.json`
+
+Before running setup, back up and move any existing regular files at those
+paths outside the managed locations. Keep the rest of each application's
+configuration directory. Setup refuses to replace existing files, even if
+their contents match.
+
+To install only the new app and font, rather than the full Brewfile:
+
+```bash
+brew install --cask ghostty font-red-hat-mono
+```
+
+If Ghostty is already installed outside Homebrew, you can keep that app.
+Do not use `--force` to replace it. Homebrew's `--adopt` option can register
+an existing app when its contents match the cask.
+
+After linking the configuration, restart Zed and reload Ghostty's configuration
+with Command+Shift+comma. The font must be installed before the apps can use it.
 
 ### Git identity and signing
 
@@ -147,8 +180,9 @@ Use project-level EditorConfig files for other projects.
 The generated Bun and pipx completions are no longer tracked. Regenerate them
 with the corresponding tools if Fish's built-in completions are insufficient.
 
-No terminal preferences or saved application state are imported.
-Existing preferences remain on the machine.
+No Apple Terminal preferences or saved application state are imported.
+Existing preferences remain on the machine. Ghostty and Zed use the tracked
+text configuration described above.
 
 ## Checks
 

@@ -51,6 +51,8 @@ brew "gitleaks"
 
 # Apps
 cask "zed"
+cask "ghostty"
 cask "rectangle"
-cask "font-hack"
-cask "font-meslo-for-powerline"
+
+# Editor and terminal font
+cask "font-red-hat-mono"

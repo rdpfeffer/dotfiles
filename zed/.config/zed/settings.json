@@ -1,0 +1,19 @@
+{
+  "terminal": {
+    "shell": {
+      "program": "fish"
+    },
+    "font_family": "Red Hat Mono"
+  },
+  "buffer_line_height": "comfortable",
+  "buffer_font_family": "Red Hat Mono",
+  "cli_default_open_behavior": "existing_window",
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 13,
+  "theme": {
+    "mode": "system",
+    "light": "Ayu Light",
+    "dark": "Catppuccin Mocha"
+  }
+}

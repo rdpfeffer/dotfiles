@@ -5,10 +5,12 @@
 set -euo pipefail
 
 repo_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-for tool in stow fish shellcheck git; do
+for tool in stow fish shellcheck git python3; do
     command -v "$tool" >/dev/null || { echo "Missing test tool: $tool" >&2; exit 1; }
 done
 fish_bin="$(command -v fish)"
+# Resolve the interpreter before HOME changes; asdf shims depend on HOME.
+python_bin="$(python3 -c 'import sys; print(sys.executable)')"
 original_path="$PATH"
 test_dir="$(mktemp -d)"
 trap 'rm -rf "$test_dir"' EXIT
@@ -48,6 +50,25 @@ pass 'Setup links from another working directory without system changes'
 
 "$repo_dir/setup.sh"
 pass 'Setup can run twice'
+
+ghostty_config="$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+zed_config="$HOME/.config/zed/settings.json"
+[[ -L "$ghostty_config" && -L "$zed_config" ]]
+[[ ! -L "$HOME/Library" && ! -L "$HOME/.config/zed" ]]
+grep -Fxq 'font-family = Red Hat Mono' "$ghostty_config"
+grep -Fxq 'theme = Desert' "$ghostty_config"
+"$python_bin" - "$zed_config" <<'PY'
+import json
+import sys
+
+with open(sys.argv[1]) as config_file:
+    config = json.load(config_file)
+assert config["buffer_font_family"] == "Red Hat Mono"
+assert config["terminal"]["font_family"] == "Red Hat Mono"
+assert config["terminal"]["shell"]["program"] == "fish"
+assert config["vim_mode"] is True
+PY
+pass 'Ghostty and Zed preserve local preferences and use Red Hat Mono'
 
 [[ "$(git config --file "$HOME/.gitconfig" core.editor)" == 'zed --wait' ]]
 [[ "$(git config --file "$HOME/.gitconfig" alias.bh)" == *for-each-ref* ]]
@@ -104,8 +125,13 @@ pass 'Shell aliases forward arguments'
 
 printf 'keep me\n' > "$HOME/.config/unrelated"
 printf 'cache data\n' > "$HOME/.cache-data"
+printf 'keep Zed data\n' > "$HOME/.config/zed/unrelated"
+printf 'keep Ghostty data\n' > "$HOME/Library/Application Support/com.mitchellh.ghostty/unrelated"
 "$repo_dir/uninstall.sh"
 [[ ! -L "$HOME/.gitconfig" && ! -L "$HOME/.config/fish/config.fish" ]]
+[[ ! -L "$ghostty_config" && ! -L "$zed_config" ]]
+[[ -f "$HOME/.config/zed/unrelated" ]]
+[[ -f "$HOME/Library/Application Support/com.mitchellh.ghostty/unrelated" ]]
 [[ "$(< "$HOME/.config/unrelated")" == 'keep me' ]]
 [[ -f "$HOME/.config/fish/config.local.fish" && -f "$HOME/.cache-data" ]]
 pass 'Uninstall preserves private config and unrelated files'
@@ -118,6 +144,20 @@ fi
 [[ "$(< "$HOME/.gitconfig")" == 'existing git config' ]]
 [[ ! -e "$HOME/.psqlrc" && ! -e "$HOME/.config/fish/config.fish" ]]
 pass 'Setup refuses conflicts without partially linking packages'
+
+rm "$HOME/.gitconfig"
+for config in "$ghostty_config" "$zed_config"; do
+    mkdir -p "$(dirname "$config")"
+    printf 'existing app config\n' > "$config"
+    if "$repo_dir/setup.sh" > "$test_dir/app-conflict.log" 2>&1; then
+        echo 'Setup should refuse existing app configuration' >&2
+        exit 1
+    fi
+    [[ "$(< "$config")" == 'existing app config' ]]
+    [[ ! -e "$HOME/.gitconfig" && ! -e "$HOME/.psqlrc" ]]
+    rm "$config"
+done
+pass 'Setup preserves existing Ghostty and Zed files without partial linking'
 
 # Install/update tests use a fake brew. They never install packages.
 export DOTFILES_BREW_LOG="$test_dir/brew.log"
