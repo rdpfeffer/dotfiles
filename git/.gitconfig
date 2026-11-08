@@ -1,19 +1,12 @@
 [user]
     name = Ryan Pfeffer
-    email =
-    signingkey =
+    email = 718379+rdpfeffer@users.noreply.github.com
+    signingkey = 5A4F0260696F45D8
 [core]
-    editor = vim
+    editor = zed --wait
     excludesfile = ~/.gitignore_global
     pager = "diff-so-fancy | less --tabs=4 -RFX"
 [alias]
-    branches = !legit branches
-    publish = !legit publish
-    unpublish = !legit unpublish
-    sync = !legit sync
-    switch = !legit switch
-    resync = !legit resync
-    undo = !legit undo
     l = log --graph --format=format:'%C(bold cyan)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(bold yellow)%d%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --abbrev-commit --decorate --date=relative --all
     # Show the local branch history (useful for local branch cleanup)
     bh = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:cyan)%(objectname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset)) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:reset)%(color:dim white)- %(authorname) %(color:reset)'
@@ -40,3 +33,16 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !gh auth git-credential
+[include]
+    path = ~/.gitconfig.local

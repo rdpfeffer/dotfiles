@@ -1,19 +1,8 @@
-#!/usr/bin/env fish
+#!/usr/bin/env bash
+set -euo pipefail
 
-# Update fish shell plugins.
-fisher update
+repo_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
-# Update hombrew.
+# Update only packages declared by this repository. Do not uninstall other tools.
 brew update
-brew upgrade
-brew cleanup
-
-# Python 2 utilities.
-pip3 install --upgrade legit
-pip2 install --upgrade em-keyboard
-
-# Heroku plugins.
-heroku plugins:update
-
-# Update Mac apps.
-mas upgrade
+brew bundle install --file="$repo_dir/Brewfile"

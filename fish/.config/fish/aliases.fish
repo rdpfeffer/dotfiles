@@ -1,64 +1,44 @@
 function up
-  ping 8.8.8.8
+    ping 8.8.8.8 $argv
 end
 
 function battery
-  pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f1 -d';'
-  pmset -g batt | egrep "([0-9]+\%).*" -o --colour=auto | cut -f3 -d';'
+    pmset -g batt
 end
 
 function cpu
-  sysctl -n machdep.cpu.brand_string
+    sysctl -n machdep.cpu.brand_string
 end
 
 function ip
-  dig +short myip.opendns.com @resolver1.opendns.com
-end
-
-function ss
-  open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
+    dig +short myip.opendns.com @resolver1.opendns.com
 end
 
 function lock
-  /System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
-end
-
-function uptime
-  command grc uptime
-end
-
-function fortune
-  command fortune $argv | lolcat
+    # Use the macOS Lock Screen shortcut.
+    osascript -e 'tell application "System Events" to keystroke "q" using {control down, command down}'
 end
 
 function df --description 'Displays disk free space'
-  command df -H $argv
+    command df -H $argv
 end
 
-function cake
-  command em sparkles cake sparkles
+function pyc --description 'Remove Python bytecode files below the current directory'
+    command find . -type f -name '*.pyc' -delete
 end
-
-function super-cake
-  command em dizzy sparkles cake sparkles dizzy
-end
-
-function pyc --description 'remove all pyc files'
-  command find . -name "*.pyc" -exec rm -rf {} \;
-end
-
-function swp --description 'remove all swp files'
-  command find . -name "*.swp" -exec rm -rf {} \;
-end 
 
 function large_files --description 'Show the ten largest files'
-  command du -d 1 -h $argv | sort -h | tail
+    command du -d 1 -h $argv | sort -h | tail
 end
 
 function dim --description 'Alias for git diff'
-  command git diff
+    command git diff $argv
 end
 
-function dimc --description 'Alias for diff --cached'
-  command git diff --cached
+function dimc --description 'Alias for git diff --cached'
+    command git diff --cached $argv
+end
+
+function k --description 'Alias for kubectl'
+    command kubectl $argv
 end

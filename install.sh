@@ -1,168 +1,29 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-# Ask for the administrator password upfront
-sudo -v
+repo_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
-# Keep-alive: update existing `sudo` time stamp until `install.sh` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+if [[ "$(uname -s)" != Darwin ]]; then
+    echo "This installer requires macOS." >&2
+    exit 1
+fi
 
+# Homebrew supports Apple Silicon and Intel Macs.
+if ! command -v brew >/dev/null 2>&1; then
+    for brew_bin in /opt/homebrew/bin/brew /usr/local/bin/brew; do
+        if [[ -x "$brew_bin" ]]; then
+            eval "$("$brew_bin" shellenv)"
+            break
+        fi
+    done
+fi
 
-cat << END
-======================================
-Installing Homebrew
-======================================
-END
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# make sure brew is on the PATH for the remainder of the script
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if ! command -v brew >/dev/null 2>&1; then
+    echo "Install Homebrew from https://brew.sh, then run this script again." >&2
+    exit 1
+fi
 
-
-cat << END
-======================================
-Making Homebrew auto update
-======================================
-END
-brew install terminal-notifier
-brew tap domt4/autoupdate
-mkdir -p $HOME/Library/LaunchAgents
-brew autoupdate --start --upgrade --cleanup
-
-
-cat << END
-======================================
-Installing essential tools
-======================================
-END
-brew install heroku
-brew install git
-brew install ripgrep
-brew install stow
-brew install awscli
-brew install cmake
-brew install docker
-brew install docker-machine
-brew install \
-  coreutils automake autoconf openssl \
-  libyaml readline libxslt libtool unixodbc \
-  unzip curl
-
-cat << END
-======================================
-Installing Download utilities
-======================================
-END
-brew install youtube-dl
-brew install wget
-brew install httpie
-
-
-cat << END
-======================================
-Installing Fancy shell stuff
-======================================
-END
-brew install fish
-brew install grc
-brew install direnv
-brew install nnn
-brew install thefuck
-brew install autojump
-brew install googler
-brew install mas
-brew install htop
-brew install neofetch
-brew install mosh
-brew install hexyl
-brew tap homebrew/cask-fonts
-brew install --cask font-hack
-brew install homebrew/cask-fonts/font-meslo-for-powerline
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
-
-
-cat << END
-======================================
-Installing Bash Utilities
-======================================
-END
-brew tap kaos/shell
-brew install bats
-brew install bats-assert
-brew install bats-file
-brew install shellcheck
-
-cat << END
-======================================
-Installing Python Utilities
-======================================
-END
-brew install python
-brew install pypy
-brew install pypy3
-brew install ipython
-pip3 install legit
-pip2 install em-keyboard
-pip2 install pre-commit --upgrade
-brew install pyenv
-curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
-
-cat << END
-======================================
-Installing Git Utilities
-======================================
-END
-brew install gist
-brew install diff-so-fancy
-
-cat << END
-======================================
-Installing Other languages
-======================================
-END
-brew install lua
-brew install node
-brew install ruby
-
-cat << END
-======================================
-Installing Fun stuff
-======================================
-END
-brew install fortune
-brew install cowsay
-brew install sl
-gem install lolcat
-
-cat << END
-======================================
-Installing Network Utilities
-======================================
-END
-brew install sshuttle
-npm install --global speed-test
-
-cat << END
-======================================
-Installing Go Toolchain
-======================================
-END
-brew install go
-brew install dep
-
-cat << END
-======================================
-Installing Encryption Utilities
-======================================
-END
-brew install gpg
-
-# Pandoc
-brew install pandoc
-
-
-cat << END
-======================================
-Installing MacVim (and symlinking vim)
-======================================
-END
-brew install macvim
-ln -s /usr/local/bin/mvim /usr/local/bin/vim
+# Do not upgrade existing packages during initial installation.
+export HOMEBREW_BUNDLE_NO_UPGRADE=1
+brew bundle install --file="$repo_dir/Brewfile"
+echo "Packages installed. Run ./setup.sh to link the configuration."
