@@ -19,8 +19,15 @@ cd ~/dotfiles
 ./setup.sh
 ```
 
-`install.sh` installs missing Brewfile packages. It does not upgrade existing
-packages. It does not install Homebrew or run remote scripts.
+`install.sh` installs missing Brewfile packages. It does not explicitly upgrade
+existing packages, but Homebrew can upgrade dependencies when required by a new
+package. It does not install Homebrew or run remote scripts.
+
+The installer announces its current step and enables verbose Homebrew output.
+Homebrew can refresh package metadata before package progress appears. A first
+installation can take several minutes. The script reports elapsed time on success
+or failure and keeps Homebrew error messages visible. If a package fails, fix the
+reported error and run `./install.sh` again.
 
 `setup.sh` links the Git, Fish, PostgreSQL, Python, Ghostty, and Zed configuration
 into `$HOME`. It works from any directory. It previews all links first and stops

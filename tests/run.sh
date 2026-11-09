@@ -164,11 +164,26 @@ export DOTFILES_BREW_LOG="$test_dir/brew.log"
 cat > "$test_dir/bin/brew" <<'MOCK'
 #!/bin/bash
 printf '%s|%s\n' "$*" "${HOMEBREW_BUNDLE_NO_UPGRADE:-}" >> "$DOTFILES_BREW_LOG"
+if [[ "$*" == *--verbose* ]]; then
+    echo 'Mock Homebrew progress'
+fi
 MOCK
 chmod +x "$test_dir/bin/brew"
-"$repo_dir/install.sh"
-grep -Fq "bundle install --file=$repo_dir/Brewfile|1" "$DOTFILES_BREW_LOG"
-pass 'Install uses the repo Brewfile and does not upgrade existing packages'
+"$repo_dir/install.sh" > "$test_dir/install.log" 2>&1
+grep -Fq "bundle install --verbose --file=$repo_dir/Brewfile|1" "$DOTFILES_BREW_LOG"
+pass 'Install uses the repo Brewfile without requesting upgrades'
+
+"$python_bin" - "$test_dir/install.log" <<'PY'
+import sys
+
+with open(sys.argv[1]) as log_file:
+    output = log_file.read()
+assert output.index("Checking for Homebrew") < output.index("Installing missing packages")
+assert output.index("Installing missing packages") < output.index("Mock Homebrew progress")
+assert output.index("Mock Homebrew progress") < output.index("Packages installed in")
+assert "metadata" in output
+PY
+pass 'Install announces work before Homebrew runs and shows progress and elapsed time'
 
 : > "$DOTFILES_BREW_LOG"
 "$repo_dir/update.sh"
@@ -177,9 +192,17 @@ grep -Fxq "bundle install --file=$repo_dir/Brewfile|" "$DOTFILES_BREW_LOG"
 [[ "$(wc -l < "$DOTFILES_BREW_LOG" | tr -d ' ')" == 2 ]]
 pass 'Update affects only declared dependencies, without cleanup or uninstalls'
 
-printf '#!/bin/bash\nexit 42\n' > "$test_dir/bin/brew"
+printf '#!/bin/bash\necho "Mock package failure" >&2\nexit 42\n' > "$test_dir/bin/brew"
 if "$repo_dir/install.sh" > "$test_dir/install-failure.log" 2>&1; then
     echo 'Install should propagate package failures' >&2
+    exit 1
+else
+    [[ "$?" == 42 ]]
+fi
+grep -Fq 'Mock package failure' "$test_dir/install-failure.log"
+grep -Fq 'Installation failed' "$test_dir/install-failure.log"
+if grep -Fq 'Packages installed in' "$test_dir/install-failure.log"; then
+    echo 'Install should not report success after failure' >&2
     exit 1
 fi
 if "$repo_dir/update.sh" > "$test_dir/update-failure.log" 2>&1; then
